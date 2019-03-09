@@ -1,0 +1,79 @@
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: rgb(72, 119, 206);
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*** Table ***/
+#contacts {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#contacts td,
+#contacts th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#contacts tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#contacts tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+#contacts th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(72, 119, 206);
+  color: white;
+  text-align: center
+}
+
+/*** Pagination ***/
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+ul.pagination li a.active {
+  background-color: rgb(72, 119, 206);
+  color: white;
+  border: 1px solid rgb(72, 119, 206);
+}
+
+ul.pagination li a:hover:not(.active) {
+  background-color: #ddd;
+}

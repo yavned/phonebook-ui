@@ -1,0 +1,48 @@
+<!-- The Modal -->
+<app-modal 
+*ngIf="contactForm" 
+[showModal]="showModal" 
+(hideModal)="showModal = false" 
+[contactForm]="contactForm"
+(relodeContacts)="getContacts(currentPage)"></app-modal>
+
+ <button type="button" class="button" (click)="add()">Add new contact</button>
+
+ <p>Total number of Contacts: {{totalNumberOfContacts}}</p>
+<p>Items per page:
+  <input type="number" step="5" min="5" max="20" [(ngModel)]="pageSize" (change)="getContacts(1)">
+</p>
+
+<button type="button" class="button" (click)="getContacts(1)">Search</button>
+<input type="text" [(ngModel)]="searchInput">
+
+<!-- Contacts table -->
+<table id="contacts">
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Gender</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let c of contacts">
+    <td (click)="edit(c)">{{c.name}}</td>
+    <td (click)="edit(c)">{{c.phone}}</td>
+    <td (click)="edit(c)">{{c.gender}}</td>
+    <td (click)="edit(c)">{{c.email}}</td>
+    <td style="text-align: center">
+      <button type="button" style="color:red" (click)="delete(c.id)"><strong>X</strong></button>
+    </td>
+  </tr>
+</table>
+
+<!--  Pagination -->
+<ul class="pagination">
+  <li><a href="javascript:void(0)" (click)="prev()">«</a></li>
+  <li *ngFor="let page of pages" (click)="getContacts(page)">
+    <a href="javascript:void(0)" [ngClass]="page === currentPage ? 'active' : ''">{{page}}</a>
+  </li>
+  <li><a href="javascript:void(0)" (click)="next()">»</a></li>
+</ul>
+
+<router-outlet></router-outlet>
